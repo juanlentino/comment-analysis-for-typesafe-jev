@@ -25,12 +25,16 @@ That dropdown is the set of `ai_provider` connectors the PHP AI Client can drive
 ## Requires
 
 - WordPress 7.0+, PHP 7.4+
-- **AI** plugin with Comment Moderation on. The feature needs at least one AI provider connected to be offered at all (`has_ai_credentials()`); this plugin then answers in that provider's place.
+- **AI** plugin with Comment Moderation on. No generative provider is needed alongside: the AI plugin's `has_ai_credentials()` counts `ai_provider` connectors only, so this plugin answers its `wpai_has_ai_credentials` filter with `true` during exactly two paths (`wp_insert_comment`, and the bulk `handle_bulk_actions-edit-comments` action) when the Jev connector has a key. Every other feature of the AI plugin still sees the truth, so nothing generative lights up without a text model behind it.
 - **Connector for TypeSafe Jev** with a key connected under Settings → Connectors.
 
 Both are declared in `Requires Plugins`, so WordPress enforces the order.
 
 ## Hooks
+
+Hooks it *consumes* from the AI plugin: `wpai_comment_analysis_result` (the analysis), `wpai_has_ai_credentials` (scoped, see above).
+
+Hooks it *provides*:
 
 - `jevca_questions` (filter) — the three questions, keyed `toxic`, `sentiment`, `valuable`. Tune the wording to your community. Keep the keys.
 - `jevca_unavailable` (action) — `( WP_Error $error, string $content )` when Jev could not be reached.

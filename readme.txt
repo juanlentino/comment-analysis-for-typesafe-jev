@@ -5,7 +5,7 @@ Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: ai, connector-for-typesafe-jev
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,7 @@ If Jev cannot be reached, the plugin steps aside and the AI plugin proceeds with
 
 = Requirements =
 
-* [AI](https://wordpress.org/plugins/ai/) with the Comment Moderation feature switched on. The feature itself needs at least one AI provider connected, because the AI plugin gates it that way; this plugin then answers in that provider's place.
+* [AI](https://wordpress.org/plugins/ai/) with the Comment Moderation feature switched on. No other AI provider is needed: on a site whose only AI connector is Jev, this plugin tells the AI plugin that credentials exist for the two comment-moderation paths (new comments and the bulk "analyze" action) and nothing else, so the rest of the AI plugin's features stay off as they should.
 * [Connector for TypeSafe Jev](https://github.com/juanlentino/jev-connector) with a key connected under **Settings → Connectors**.
 
 = Filters =
@@ -53,11 +53,18 @@ Service terms and policies: https://docs.typesafe.ai/legal
 
 That list is generative providers the core AI Client can drive. Jev returns probabilities and choices, not text, so it is not one of them, and registering it as one would get its key rejected. This plugin uses the Comment Moderation feature's own extension point for a replacement analysis, which is the door the AI plugin provides for exactly this.
 
+= Does it turn on the AI plugin's other features? =
+
+No. The AI plugin asks one question, "are there AI credentials?", for everything it does. This plugin answers yes only while a new comment is being inserted or the bulk analysis action is running, and only when the Jev connector has a key. Alt text, suggestions and the rest keep seeing whatever generative providers you actually have.
+
 = Which comments does it analyse? =
 
 Whichever ones the AI plugin decides to analyse. This plugin never touches a comment on its own.
 
 == Changelog ==
+
+= 0.2.0 =
+* Works on a site whose only AI connector is Jev. Comment Moderation no longer needs a generative provider connected alongside.
 
 = 0.1.0 =
 * First release.

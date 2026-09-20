@@ -3,7 +3,7 @@
  * Plugin Name:       Comment Analysis for TypeSafe Jev
  * Plugin URI:        https://github.com/juanlentino/jev-comment-analysis
  * Description:       Backs the AI plugin's Comment Moderation feature with TypeSafe Jev. Toxicity, sentiment and value come from three typed questions instead of a generative model.
- * Version:           0.1.0
+ * Version:           0.2.0
  * Requires at least: 7.0
  * Requires PHP:      7.4
  * Requires Plugins:  ai, connector-for-typesafe-jev
@@ -126,3 +126,29 @@ function analyze( $pre, $content, $author ) {
 }
 
 add_filter( 'wpai_comment_analysis_result', __NAMESPACE__ . '\\analyze', 10, 3 );
+
+/**
+ * Let Comment Moderation run on a site whose only AI connector is Jev.
+ *
+ * The AI plugin's has_ai_credentials() counts ai_provider connectors only, so
+ * on a Jev-only site moderate_comment() and the bulk analysis action bail
+ * before analyze() is ever asked. The plugin offers this filter for exactly
+ * that case, but it is global: answering true everywhere would light up
+ * every generative feature the plugin has, and those would then fail for
+ * want of a text model. So the answer is confined to the two comment paths.
+ *
+ * ponytail: this couples to the AI plugin's call sites (wp_insert_comment and
+ * the bulk action filter). If a third comment path appears, add it here.
+ *
+ * @param bool $has_credentials What the AI plugin worked out on its own.
+ * @return bool
+ */
+function has_credentials( $has_credentials ) {
+	if ( $has_credentials || ! function_exists( 'JevConnector\\is_ready' ) || ! \JevConnector\is_ready() ) {
+		return (bool) $has_credentials;
+	}
+
+	return doing_action( 'wp_insert_comment' ) || doing_filter( 'handle_bulk_actions-edit-comments' );
+}
+
+add_filter( 'wpai_has_ai_credentials', __NAMESPACE__ . '\\has_credentials' );
