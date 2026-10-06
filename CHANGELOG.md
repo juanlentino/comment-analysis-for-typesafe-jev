@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.1] - 2026-10-05
+
+### Fixed
+
+- The README and the readme.txt FAQ said registering Jev as an `ai_provider`
+  would get its key rejected by AI Client validation. The actual mechanism:
+  core checks `ai_provider` keys on save against the provider class registered
+  under the same id, and clears the key when there is none. Jev has no
+  provider class because the AI Client has no capability yet for decision
+  models (php-ai-client#296). Matches the correction in Connector for TypeSafe
+  Jev and on Core Trac #66146. No behaviour change.
+
 ## [0.2.0] - 2026-09-20
 
 ### Added

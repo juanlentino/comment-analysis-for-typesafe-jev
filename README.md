@@ -20,7 +20,7 @@ On any failure (connector absent, no key, API error, incomplete answer) it retur
 
 ## Why not a provider in the AI tab
 
-That dropdown is the set of `ai_provider` connectors the PHP AI Client can drive: generative models. Jev is a judgement model. Registering it as `ai_provider` would hand its key to the AI Client for validation, which it cannot pass, and core would clear it. The feature's own extension point is the right layer.
+That dropdown lists providers the PHP AI Client can drive, and Jev has no provider class there yet: the client describes models by capability, and none of its capabilities fits a model that returns a probability or a choice rather than text. Core checks every `ai_provider` key on save against the provider class registered under the same id and clears it when there is none, which is why Connector for TypeSafe Jev registers under its own type for now. The Core AI team's direction is decision-model support inside the AI Client ([php-ai-client#296](https://github.com/WordPress/php-ai-client/issues/296)); until then, the feature's own extension point is the right layer.
 
 ## Requires
 

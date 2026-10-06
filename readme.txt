@@ -5,7 +5,7 @@ Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: ai, connector-for-typesafe-jev
-Stable tag: 0.2.0
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,7 +51,7 @@ Service terms and policies: https://docs.typesafe.ai/legal
 
 = Why doesn't Jev appear in the provider list on the AI tab? =
 
-That list is generative providers the core AI Client can drive. Jev returns probabilities and choices, not text, so it is not one of them, and registering it as one would get its key rejected. This plugin uses the Comment Moderation feature's own extension point for a replacement analysis, which is the door the AI plugin provides for exactly this.
+That list is the providers the core AI Client can drive. Jev returns probabilities and choices rather than text, and the AI Client has no capability for that kind of model yet, so Jev has no provider there. Until it does, this plugin uses the Comment Moderation feature's own extension point for a replacement analysis, which is the door the AI plugin provides for exactly this.
 
 = Does it turn on the AI plugin's other features? =
 
@@ -62,6 +62,9 @@ No. The AI plugin asks one question, "are there AI credentials?", for everything
 Whichever ones the AI plugin decides to analyse. This plugin never touches a comment on its own.
 
 == Changelog ==
+
+= 0.2.1 =
+* Corrected the FAQ on why Jev is not in the AI tab's provider list: it has no AI Client provider class yet, not a key the client rejects.
 
 = 0.2.0 =
 * Works on a site whose only AI connector is Jev. Comment Moderation no longer needs a generative provider connected alongside.
