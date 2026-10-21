@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased]
+
+### Documentation
+
+- Links to Connector for TypeSafe Jev point at its renamed repo,
+  `connector-for-typesafe-jev` (GitHub redirects the old `jev-connector` URL).
+
 ## [0.2.1] - 2026-10-05
 
 ### Fixed
