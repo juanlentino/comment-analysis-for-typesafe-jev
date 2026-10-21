@@ -5,7 +5,7 @@ Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 7.4
 Requires Plugins: ai, connector-for-typesafe-jev
-Stable tag: 0.2.1
+Stable tag: 0.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,8 @@ This plugin answers instead, with TypeSafe's Jev model. Jev does not generate te
 Everything else stays the AI plugin's: the hold threshold, the badges on the Comments screen, the filters, the comment meta. Switch the feature on under **Settings → AI**, and Jev is what answers.
 
 If Jev cannot be reached, the plugin steps aside and the AI plugin proceeds with whichever generative provider it would have used. An outage never leaves a comment unanalysed.
+
+TypeSafe and Jev are trademarks of their owner. This plugin is an independent integration and is not affiliated with, endorsed by, or sponsored by TypeSafe.
 
 = Requirements =
 
@@ -63,6 +65,10 @@ Whichever ones the AI plugin decides to analyse. This plugin never touches a com
 
 == Changelog ==
 
+= 0.2.2 =
+* The description now states that the plugin is independent and not affiliated with TypeSafe.
+* The plugin's home moved to github.com/juanlentino/comment-analysis-for-typesafe-jev, named after the plugin.
+
 = 0.2.1 =
 * Corrected the FAQ on why Jev is not in the AI tab's provider list: it has no AI Client provider class yet, not a key the client rejects.
 
@@ -71,3 +77,8 @@ Whichever ones the AI plugin decides to analyse. This plugin never touches a com
 
 = 0.1.0 =
 * First release.
+
+== Upgrade Notice ==
+
+= 0.2.2 =
+Readme only: an independence statement and the plugin's new home. No behaviour change.

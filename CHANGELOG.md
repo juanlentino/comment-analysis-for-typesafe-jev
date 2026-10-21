@@ -2,6 +2,20 @@
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-10-21
+
+Directory readiness, checked against the plugin guidelines and the readme
+template. No behaviour change.
+
+### Changed
+
+- `readme.txt` states that the plugin is independent and not affiliated with,
+  endorsed by, or sponsored by TypeSafe (until now only README said it).
+- `readme.txt` gains the template's `== Upgrade Notice ==` section.
+- The GitHub repo is renamed from `jev-comment-analysis` to
+  `comment-analysis-for-typesafe-jev`, the slug, so its public name no longer
+  starts with TypeSafe's mark. GitHub redirects old URLs. `Plugin URI` updated.
+
 ### Documentation
 
 - Links to Connector for TypeSafe Jev point at its renamed repo,
