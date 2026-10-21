@@ -1,6 +1,6 @@
 # Comment Analysis for TypeSafe Jev
 
-Backs the [AI plugin](https://github.com/WordPress/ai)'s **Comment Moderation** feature with [TypeSafe Jev](https://docs.typesafe.ai), through [Connector for TypeSafe Jev](https://github.com/juanlentino/jev-connector).
+Backs the [AI plugin](https://github.com/WordPress/ai)'s **Comment Moderation** feature with [TypeSafe Jev](https://docs.typesafe.ai), through [Connector for TypeSafe Jev](https://github.com/juanlentino/connector-for-typesafe-jev).
 
 One file, one filter. The AI plugin's `Comment_Analysis` ability opens with
 

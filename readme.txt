@@ -28,7 +28,7 @@ If Jev cannot be reached, the plugin steps aside and the AI plugin proceeds with
 = Requirements =
 
 * [AI](https://wordpress.org/plugins/ai/) with the Comment Moderation feature switched on. No other AI provider is needed: on a site whose only AI connector is Jev, this plugin tells the AI plugin that credentials exist for the two comment-moderation paths (new comments and the bulk "analyze" action) and nothing else, so the rest of the AI plugin's features stay off as they should.
-* [Connector for TypeSafe Jev](https://github.com/juanlentino/jev-connector) with a key connected under **Settings → Connectors**.
+* [Connector for TypeSafe Jev](https://github.com/juanlentino/connector-for-typesafe-jev) with a key connected under **Settings → Connectors**.
 
 = Filters =
 
