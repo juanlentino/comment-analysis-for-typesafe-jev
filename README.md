@@ -41,4 +41,4 @@ Hooks it *provides*:
 
 ## License
 
-GPL-2.0-or-later. TypeSafe and Jev are trademarks of their owner; this plugin is an independent integration and is not affiliated with or endorsed by TypeSafe.
+GPL-2.0-or-later. TypeSafe and Jev are trademarks of their owner; this plugin is an independent integration and is not affiliated with, endorsed by, or sponsored by TypeSafe.
