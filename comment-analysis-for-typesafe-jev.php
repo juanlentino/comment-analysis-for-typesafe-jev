@@ -3,10 +3,10 @@
  * Plugin Name:       Comment Analysis for TypeSafe Jev
  * Plugin URI:        https://github.com/juanlentino/comment-analysis-for-typesafe-jev
  * Description:       Backs the AI plugin's Comment Moderation feature with TypeSafe Jev. Toxicity, sentiment and value come from three typed questions instead of a generative model.
- * Version:           0.2.2
+ * Version:           0.3.0
  * Requires at least: 7.0
  * Requires PHP:      7.4
- * Requires Plugins:  ai, connector-for-typesafe-jev
+ * Requires Plugins:  ai, tribar-connector-for-typesafe-jev
  * Author:            Juan Lentino
  * Author URI:        https://juanlentino.com
  * License:           GPL-2.0-or-later
