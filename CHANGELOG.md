@@ -2,6 +2,19 @@
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-10-26
+
+### Changed
+
+- `Requires Plugins` names `tribar-connector-for-typesafe-jev`. The connector
+  was renamed to Tribar Connector for TypeSafe Jev in its 0.4.6 at the
+  WordPress.org directory review's request, and WordPress matches plugin
+  dependencies by folder slug, so the old `connector-for-typesafe-jev` folder
+  no longer satisfies the dependency. Minor bump: a site must install the
+  renamed connector before updating. Its settings and key carry over (the
+  setting names did not change).
+- README and readme.txt use the new name and link the renamed repo.
+
 ## [0.2.2] - 2026-10-21
 
 Directory readiness, checked against the plugin guidelines and the readme

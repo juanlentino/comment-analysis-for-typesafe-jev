@@ -4,8 +4,8 @@ Tags: ai, comments, moderation, classification, typesafe
 Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Requires Plugins: ai, connector-for-typesafe-jev
-Stable tag: 0.2.2
+Requires Plugins: ai, tribar-connector-for-typesafe-jev
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,7 +30,7 @@ TypeSafe and Jev are trademarks of their owner. This plugin is an independent in
 = Requirements =
 
 * [AI](https://wordpress.org/plugins/ai/) with the Comment Moderation feature switched on. No other AI provider is needed: on a site whose only AI connector is Jev, this plugin tells the AI plugin that credentials exist for the two comment-moderation paths (new comments and the bulk "analyze" action) and nothing else, so the rest of the AI plugin's features stay off as they should.
-* [Connector for TypeSafe Jev](https://github.com/juanlentino/connector-for-typesafe-jev) with a key connected under **Settings → Connectors**.
+* [Tribar Connector for TypeSafe Jev](https://github.com/juanlentino/tribar-connector-for-typesafe-jev) with a key connected under **Settings → Connectors**.
 
 = Filters =
 
@@ -39,13 +39,13 @@ TypeSafe and Jev are trademarks of their owner. This plugin is an independent in
 
 == External services ==
 
-This plugin sends each new comment's text and the author name as typed to the TypeSafe System One API, through Connector for TypeSafe Jev, when the AI plugin's Comment Moderation feature analyses that comment. It sends nothing else: no email address, IP address or URL, and no post content. The request goes to `https://api.typesafe.ai/v1/systemone` using the API key held by the connector. Nothing is sent on activation, on page load, or on any schedule.
+This plugin sends each new comment's text and the author name as typed to the TypeSafe System One API, through Tribar Connector for TypeSafe Jev, when the AI plugin's Comment Moderation feature analyses that comment. It sends nothing else: no email address, IP address or URL, and no post content. The request goes to `https://api.typesafe.ai/v1/systemone` using the API key held by the connector. Nothing is sent on activation, on page load, or on any schedule.
 
 Service terms and policies: https://docs.typesafe.ai/legal
 
 == Installation ==
 
-1. Install and activate Connector for TypeSafe Jev, and connect a key under **Settings → Connectors**.
+1. Install and activate Tribar Connector for TypeSafe Jev, and connect a key under **Settings → Connectors**.
 2. Install and activate the AI plugin, and switch on **Comment Moderation** under **Settings → AI**.
 3. Install and activate this plugin. There is nothing to configure.
 
@@ -65,6 +65,9 @@ Whichever ones the AI plugin decides to analyse. This plugin never touches a com
 
 == Changelog ==
 
+= 0.3.0 =
+* Requires Tribar Connector for TypeSafe Jev (slug tribar-connector-for-typesafe-jev), the connector's new name since its 0.4.6. WordPress matches plugin dependencies by slug, so the old connector folder no longer satisfies it.
+
 = 0.2.2 =
 * The description now states that the plugin is independent and not affiliated with TypeSafe.
 * The plugin's home moved to github.com/juanlentino/comment-analysis-for-typesafe-jev, named after the plugin.
@@ -79,6 +82,9 @@ Whichever ones the AI plugin decides to analyse. This plugin never touches a com
 * First release.
 
 == Upgrade Notice ==
+
+= 0.3.0 =
+Install Tribar Connector for TypeSafe Jev 0.4.6 or later first. The connector was renamed, and this plugin now depends on the new slug. Your key carries over.
 
 = 0.2.2 =
 Readme only: an independence statement and the plugin's new home. No behaviour change.
